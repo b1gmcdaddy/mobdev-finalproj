@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mobdev_finalproj/models/Post.dart';
-import 'package:http/http.dart' as http;
-import 'package:http/http.dart';
 
 class PostDetail extends StatelessWidget {
   final Post3 id1;
