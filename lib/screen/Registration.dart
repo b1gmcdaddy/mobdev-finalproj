@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:mobdev_finalproj/models/CustomTextFormField.dart';
 import 'package:mobdev_finalproj/models/PasswordField.dart';
 import 'package:mobdev_finalproj/models/PrimaryButton.dart';
@@ -92,10 +93,21 @@ class _RegistrationState extends State<Registration> {
       UserCredential credential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
 
-      print("successful registration");
+      User? currentUser = FirebaseAuth.instance.currentUser;
+
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+      final GoogleSignInAuthentication? googleAuth =
+          await googleUser?.authentication;
+
+      final googleCredential = GoogleAuthProvider.credential(
+        accessToken: googleAuth?.accessToken,
+        idToken: googleAuth?.idToken,
+      );
+
+      if (currentUser != null && !currentUser.isAnonymous) {
+        await currentUser.linkWithCredential(googleCredential);
+      }
       Navigator.pushReplacementNamed(context, LoginScreen.routeName);
-    } on FirebaseAuthException catch (e) {
-      print(e.message);
     } catch (e) {
       print(e);
     }

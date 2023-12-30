@@ -74,7 +74,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     text: "Login with Google",
                     iconData: FaIcon(FontAwesomeIcons.google),
                     onPress: () {
-                      loginWithGoogle();
+                      loginWithGoogle(context, emailController.value.text,
+                          passwordController.value.text);
                     }),
                 SizedBox(
                   height: 20.0,
@@ -105,8 +106,10 @@ class _LoginScreenState extends State<LoginScreen> {
     try {
       UserCredential credential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
+
       var item = StorageItem("uid", credential.user?.uid ?? "");
       await session.saveData(item);
+
       Navigator.pushReplacementNamed(context, Home.routeName);
     } on FirebaseAuthException catch (e) {
       print(e.message);
@@ -115,7 +118,7 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
-  loginWithGoogle() async {
+  loginWithGoogle(context, String email, String password) async {
     try {
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
@@ -129,6 +132,18 @@ class _LoginScreenState extends State<LoginScreen> {
 
       UserCredential? userCredential =
           await FirebaseAuth.instance.signInWithCredential(credential);
+
+      User? currentUser = FirebaseAuth.instance.currentUser;
+
+      AuthCredential emailCredential = EmailAuthProvider.credential(
+        email: email,
+        password: password,
+      );
+
+      if (currentUser != null && !currentUser.isAnonymous) {
+        await currentUser.linkWithCredential(emailCredential);
+      }
+
       Navigator.pushReplacementNamed(context, Home.routeName);
     } catch (e) {
       print(e);

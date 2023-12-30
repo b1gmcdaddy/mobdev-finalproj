@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mobdev_finalproj/models/PrimaryButton.dart';
 import 'package:mobdev_finalproj/screen/LoginScreen.dart';
+import 'package:mobdev_finalproj/session/Session.dart';
 
 class Settings extends StatefulWidget {
   static const String routeName = "settings";
@@ -46,7 +47,9 @@ class _SettingsState extends State<Settings> {
     );
   }
 
-  void logout() {
+  void logout() async {
+    Session storageService = Session();
+    await storageService.deleteData("uid");
     Navigator.pushReplacementNamed(context, LoginScreen.routeName);
   }
 }
