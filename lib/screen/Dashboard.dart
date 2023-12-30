@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:midterm_b/models/Post.dart';
-import 'package:midterm_b/screen/PostDetail.dart';
+import 'package:mobdev_finalproj/models/Post.dart';
+import 'package:mobdev_finalproj/screen/PostDetail.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 

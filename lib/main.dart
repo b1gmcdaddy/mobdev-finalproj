@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:midterm_b/firebase_options.dart';
-import 'package:midterm_b/screen/Home.dart';
-import 'package:midterm_b/screen/LoginScreen.dart';
-import 'package:midterm_b/routes/routes.dart';
+import 'package:mobdev_finalproj/firebase_options.dart';
+import 'package:mobdev_finalproj/screen/Home.dart';
+import 'package:mobdev_finalproj/screen/LoginScreen.dart';
+import 'package:mobdev_finalproj/routes/routes.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:midterm_b/session/Session.dart';
+import 'package:mobdev_finalproj/session/Session.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:midterm_b/screen/Dashboard.dart';
-import 'package:midterm_b/screen/Settings.dart';
+import 'package:mobdev_finalproj/screen/Dashboard.dart';
+import 'package:mobdev_finalproj/screen/Settings.dart';
 
 class Home extends StatefulWidget {
   static const String routeName = "home";

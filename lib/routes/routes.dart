@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:midterm_b/screen/Dashboard.dart';
-import 'package:midterm_b/screen/ForgotPassword.dart';
-import 'package:midterm_b/screen/Registration.dart';
-import 'package:midterm_b/screen/LoginScreen.dart';
-import 'package:midterm_b/screen/Home.dart';
-import 'package:midterm_b/screen/Settings.dart';
+import 'package:mobdev_finalproj/screen/Dashboard.dart';
+import 'package:mobdev_finalproj/screen/ForgotPassword.dart';
+import 'package:mobdev_finalproj/screen/Registration.dart';
+import 'package:mobdev_finalproj/screen/LoginScreen.dart';
+import 'package:mobdev_finalproj/screen/Home.dart';
+import 'package:mobdev_finalproj/screen/Settings.dart';
 
 final Map<String, WidgetBuilder> routes = {
   LoginScreen.routeName: (BuildContext context) => LoginScreen(),

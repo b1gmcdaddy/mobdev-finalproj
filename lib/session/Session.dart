@@ -1,5 +1,5 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:midterm_b/models/StorageItem.dart';
+import 'package:mobdev_finalproj/models/StorageItem.dart';
 
 class Session {
   final FlutterSecureStorage _storage = FlutterSecureStorage();

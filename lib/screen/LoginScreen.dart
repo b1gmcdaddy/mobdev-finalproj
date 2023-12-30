@@ -1,12 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:midterm_b/models/CustomTextFormField.dart';
-import 'package:midterm_b/models/PasswordField.dart';
-import 'package:midterm_b/models/PrimaryButton.dart';
-import 'package:midterm_b/models/StorageItem.dart';
-import 'package:midterm_b/screen/Home.dart';
-import 'package:midterm_b/screen/Registration.dart';
-import 'package:midterm_b/session/Session.dart';
+import 'package:mobdev_finalproj/models/CustomTextFormField.dart';
+import 'package:mobdev_finalproj/models/PasswordField.dart';
+import 'package:mobdev_finalproj/models/PrimaryButton.dart';
+import 'package:mobdev_finalproj/models/StorageItem.dart';
+import 'package:mobdev_finalproj/screen/Home.dart';
+import 'package:mobdev_finalproj/screen/Registration.dart';
+import 'package:mobdev_finalproj/session/Session.dart';
 
 class LoginScreen extends StatefulWidget {
   static const String routeName = "login";

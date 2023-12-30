@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:midterm_b/models/PrimaryButton.dart';
-import 'package:midterm_b/screen/LoginScreen.dart';
+import 'package:mobdev_finalproj/models/PrimaryButton.dart';
+import 'package:mobdev_finalproj/screen/LoginScreen.dart';
 
 class Settings extends StatefulWidget {
   static const String routeName = "settings";
