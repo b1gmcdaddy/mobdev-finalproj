@@ -17,6 +17,7 @@ void main() async {
 
   if (item != null) {
     runApp(MaterialApp(
+      debugShowCheckedModeBanner: false,
       initialRoute: Home.routeName,
       routes: routes,
     ));

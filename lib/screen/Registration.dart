@@ -92,6 +92,7 @@ class _RegistrationState extends State<Registration> {
           .createUserWithEmailAndPassword(email: email, password: password);
 
       print("successful registration");
+      Navigator.pushReplacementNamed(context, LoginScreen.routeName);
     } on FirebaseAuthException catch (e) {
       print(e.message);
     } catch (e) {
