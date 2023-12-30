@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mobdev_finalproj/models/PrimaryButton.dart';
 import 'package:mobdev_finalproj/screen/LoginScreen.dart';
 
@@ -34,7 +35,9 @@ class _SettingsState extends State<Settings> {
                   height: 40.0,
                 ),
                 PrimaryButton(
-                    text: "Logout", iconData: Icons.login, onPress: logout),
+                    text: "Logout",
+                    iconData: FaIcon(FontAwesomeIcons.signOutAlt),
+                    onPress: logout),
               ],
             ),
           ),

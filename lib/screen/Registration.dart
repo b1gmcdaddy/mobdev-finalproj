@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mobdev_finalproj/models/CustomTextFormField.dart';
 import 'package:mobdev_finalproj/models/PasswordField.dart';
 import 'package:mobdev_finalproj/models/PrimaryButton.dart';
@@ -56,7 +57,7 @@ class _RegistrationState extends State<Registration> {
                 ),
                 PrimaryButton(
                     text: "Sign up",
-                    iconData: Icons.login,
+                    iconData: FaIcon(FontAwesomeIcons.userPlus),
                     onPress: () {
                       signUp(emailController.value.text,
                           passwordController.value.text);

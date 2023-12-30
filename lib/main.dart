@@ -23,6 +23,7 @@ void main() async {
     ));
   } else {
     runApp(MaterialApp(
+      debugShowCheckedModeBanner: false,
       initialRoute: LoginScreen.routeName,
       routes: routes,
     ));

@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:mobdev_finalproj/models/CustomTextFormField.dart';
 import 'package:mobdev_finalproj/models/PasswordField.dart';
 import 'package:mobdev_finalproj/models/PrimaryButton.dart';
@@ -7,6 +8,7 @@ import 'package:mobdev_finalproj/models/StorageItem.dart';
 import 'package:mobdev_finalproj/screen/Home.dart';
 import 'package:mobdev_finalproj/screen/Registration.dart';
 import 'package:mobdev_finalproj/session/Session.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LoginScreen extends StatefulWidget {
   static const String routeName = "login";
@@ -60,7 +62,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 PrimaryButton(
                     text: "Login",
-                    iconData: Icons.login,
+                    iconData: FaIcon(FontAwesomeIcons.signIn),
                     onPress: () {
                       signIn(context, emailController.value.text,
                           passwordController.value.text);
@@ -70,8 +72,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 PrimaryButton(
                     text: "Login with Google",
-                    iconData: Icons.login,
-                    onPress: () {}),
+                    iconData: FaIcon(FontAwesomeIcons.google),
+                    onPress: () {
+                      loginWithGoogle();
+                    }),
                 SizedBox(
                   height: 20.0,
                 ),
@@ -106,6 +110,26 @@ class _LoginScreenState extends State<LoginScreen> {
       Navigator.pushReplacementNamed(context, Home.routeName);
     } on FirebaseAuthException catch (e) {
       print(e.message);
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  loginWithGoogle() async {
+    try {
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+      final GoogleSignInAuthentication? googleAuth =
+          await googleUser?.authentication;
+
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth?.accessToken,
+        idToken: googleAuth?.idToken,
+      );
+
+      UserCredential? userCredential =
+          await FirebaseAuth.instance.signInWithCredential(credential);
+      Navigator.pushReplacementNamed(context, Home.routeName);
     } catch (e) {
       print(e);
     }
